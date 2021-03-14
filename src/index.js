@@ -10,12 +10,12 @@ const refs = {
   galleryMenu: document.querySelector('.js-menu'),
   themeSwitch: document.querySelector('#theme-switch-toggle'),
 };
-
+// localStorage.clear();
 const markup = itemMenu(menuGallery);
 refs.galleryMenu.insertAdjacentHTML('beforeend', markup);
 if (localStorage.getItem('theme') === 'dark-theme') {
   refs.themeSwitch.checked = true;
-}
+} else  refs.themeSwitch.checked = false;
 if (localStorage.getItem('theme') != undefined) {
   addClass(localStorage.getItem('theme'));
 }

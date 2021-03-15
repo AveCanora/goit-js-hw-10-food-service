@@ -5,11 +5,7 @@ const Theme = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme',
 };
-
-const refs = {
-  galleryMenu: document.querySelector('.js-menu'),
-  themeSwitch: document.querySelector('#theme-switch-toggle'),
-};
+import { refs } from './js/refs.js';
 if (localStorage.getItem('theme') === 'dark-theme') {
   refs.themeSwitch.checked = true;
 } else refs.themeSwitch.checked = false;

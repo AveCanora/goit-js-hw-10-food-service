@@ -1,5 +1,5 @@
-import './styles.css';
-import menuGallery from './menu.json';
+import './css/styles.css';
+import menuGallery from './data/menu.json';
 import itemMenu from './templates/menu.hbs';
 const Theme = {
   LIGHT: 'light-theme',
@@ -10,17 +10,15 @@ const refs = {
   galleryMenu: document.querySelector('.js-menu'),
   themeSwitch: document.querySelector('#theme-switch-toggle'),
 };
-// localStorage.clear();
-const markup = itemMenu(menuGallery);
-refs.galleryMenu.insertAdjacentHTML('beforeend', markup);
 if (localStorage.getItem('theme') === 'dark-theme') {
   refs.themeSwitch.checked = true;
-} else  refs.themeSwitch.checked = false;
+} else refs.themeSwitch.checked = false;
 if (localStorage.getItem('theme') != undefined) {
   addClass(localStorage.getItem('theme'));
 }
-
 refs.themeSwitch.addEventListener('change', themeswitchClick);
+const markup = itemMenu(menuGallery);
+refs.galleryMenu.insertAdjacentHTML('beforeend', markup);
 
 function themeswitchClick(evt) {
   const positionSwith = evt.target;
